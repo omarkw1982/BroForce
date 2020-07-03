@@ -5,11 +5,24 @@ import time
 
 
 class ClinicSchedule(object):
-    var _visitList = [];
-    var _appointmentList = [];
-    var currentDateTime;
+    var visitList = [];
+    var appointmentList = [];
+    var currentDateTime = None;
 
-    def book(self,
+    def __init__(self, _v, _app, _t):
+        self.visitList = _v
+        self.appointmentList = _app
+        self.currentDateTime = _t
+
+    def book(self, appt):
+        return None;
+
+    def cancel(self, appt):
+        return None;
+
+    def isAvailable(self, dt1, dt2):
+        return True;
+
 
 
 

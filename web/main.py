@@ -2,11 +2,16 @@ import os, os.path
 import cherrypy
 
 
-class MainApp(object):
-
+class RootServer():
     @cherrypy.expose
     def index(self):
-        return open('./web/index.html')
+        return """This is a public page!"""
+
+class MainApp(object):
+    @cherrypy.expose
+    def index(self):
+        return "This is a secure section"
+        #return open('./web/index.html')
 
     @cherrypy.expose
     def register(self):
@@ -32,9 +37,23 @@ class MainApp(object):
     def admin(self):
         return open('../web/admin.html')
 
+def get_users():
+        db = MySQLdb.connect(host='localhost',
+                             user='db_name',
+                             passwd='db_pass',
+                             db='db_name')
+        curs = db.cursor()
+        curs.execute('select username,password from users')
+        return dict(curs.fetchall())
+
+def encrypt_pw(pw):
+        return md5(pw).hexdigest()
+
 
 
 if __name__ == '__main__':
+    users = get_users()
+
     conf = {
         'global': {
             'server.socket_host': '127.0.0.1',
@@ -47,7 +66,17 @@ if __name__ == '__main__':
         '/static': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': '../public'
-        }
+        },
+        '/secure': {'tools.basic_auth.on': True,
+                    'tools.basic_auth.realm': 'Some site2',
+                    'tools.basic_auth.users': users,
+                    'tools.basic_auth.encrypt': encrypt_pw}
     }
 
-    cherrypy.quickstart(MainApp(), '/', conf)
+    root = RootServer()
+    root.secure = MainApp()
+    cherrypy.quickstart(root, '/', conf)
+
+
+
+
