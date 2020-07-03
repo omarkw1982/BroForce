@@ -10,6 +10,7 @@ class RootServer():
 class MainApp(object):
     @cherrypy.expose
     def index(self):
+        return open('../web/index.html')
         return "This is a secure section"
         #return open('./web/index.html')
 

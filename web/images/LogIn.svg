@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="40" viewBox="0 0 78 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dbdbdb;
+        font-size: 30px;
+        font-family: SegoeUI-SemilightItalic, Segoe UI;
+        font-weight: 300;
+        font-style: italic;
+      }
+    </style>
+  </defs>
+  <text id="LogIn" class="cls-1" transform="translate(0 32)"><tspan x="0" y="0">Log In</tspan></text>
+</svg>
