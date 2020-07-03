@@ -6,27 +6,32 @@ class MainApp(object):
 
     @cherrypy.expose
     def index(self):
-        return open('../template/index.html')
+        return open('../web/index.html')
 
     @cherrypy.expose
     def register(self):
-        return open('../template/setoolkit/index.html')
+        return open('../web/register.html')
 
     @cherrypy.expose
     def login(self):
-        return open('../template/bots/index.html')
+        return open('../web/login.html')
 
     @cherrypy.expose
-    def addApt(self):
-        return open('../template/rats/index.html')
+    def appointments(self):
+        return open('../web/appointments.html')
 
     @cherrypy.expose
-    def editApt(self):
-        return open('../template/sna/index.html')
+    def doctor(self):
+        return open('../web/doctor.html')
 
     @cherrypy.expose
-    def deleteApt(self):
-        return open('../template/calldirs/index.html')
+    def patient(self):
+        return open('../web/patient.html')
+
+    @cherrypy.expose
+    def admin(self):
+        return open('../web/admin.html')
+
 
 
 if __name__ == '__main__':
@@ -44,5 +49,5 @@ if __name__ == '__main__':
             'tools.staticdir.dir': '../public'
         }
     }
-    MainApp.appointment = AppointmentApp()
+
     cherrypy.quickstart(MainApp(), '/', conf)
