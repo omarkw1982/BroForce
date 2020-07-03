@@ -6,7 +6,7 @@ class MainApp(object):
 
     @cherrypy.expose
     def index(self):
-        return open('../web/index.html')
+        return open('./web/index.html')
 
     @cherrypy.expose
     def register(self):
