@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="103" height="42" viewBox="0 0 103 42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dbdbdb;
+        stroke: #707070;
+        font-size: 30px;
+        font-family: SegoeUI-SemilightItalic, Segoe UI;
+        font-weight: 300;
+        font-style: italic;
+      }
+    </style>
+  </defs>
+  <text id="Register" class="cls-1" transform="translate(1 33)"><tspan x="0" y="0">Register</tspan></text>
+</svg>
