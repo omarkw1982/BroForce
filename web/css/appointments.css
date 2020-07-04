@@ -1,0 +1,29 @@
+body
+{
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.appointments
+{
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.logo
+{
+    width: 250px;
+}
+
+@media only screen and (min-width: 650px)
+{
+   .logo
+    {
+        width: 400px;
+    }
+}
+
