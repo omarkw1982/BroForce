@@ -5,5 +5,3 @@ SELECT `Users`.`userid`,
     `Users`.`time_created`,
     `Users`.`status`
 FROM `BroForce`.`Users`;
-
-

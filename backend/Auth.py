@@ -6,18 +6,70 @@
 #
 
 import cherrypy
+import pymysql
+from hashlib import sha1
 
 SESSION_KEY = '_cp_username'
+
+
+def get_users():
+    # Connect to the database
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='root',
+                                 db='BroForce',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            # Read a single record
+            sql = "SELECT `name` FROM `BroForce`.`Users`;"
+            cursor.execute(sql)
+            users = list(cursor.fetchall())
+            print("User list: " + users)
+    finally:
+        connection.close()
+        return users
+
+
+def get_user_digest(u):
+    # Connect to the database
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='root',
+                                 db='BroForce',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            sql = "SELECT `Users`.`password`FROM `BroForce`.`Users`  WHERE `Users`.`name` LIKE '" + str(u) + "'";
+            cursor.execute(sql)
+            pass_digest = cursor.fetchall();
+            print("User hash: " + users)
+    finally:
+        connection.close()
+        return pass_digest;
+
+
+def encrypt_pw(pw):
+    return sha1(pw.encode('utf-8')).hexdigest()
 
 
 def check_credentials(username, password):
     """Verifies credentials for username and password.
     Returns None on success or a string describing the error on failure"""
     # Adapt to your needs
-    if username in ('joe', 'steve') and password == 'secret':
-        return None
+    userlist = get_users();
+    if next((True for u in userlist if u['name'] == username), False):
+        # Compute the password digest and compare with stored digest
+        computed_digest = encrypt_pw(password)
+        stored_digest = get_user_digest(username)
+        if computed_digest == stored_digest[0]['password']:
+            return None
+        else:
+            return u"Incorrect username or password."  #incorrect pass
     else:
-        return u"Incorrect username or password."
+        return u"Incorrect username or password."  #incorrect user
 
     # An example implementation which uses an ORM could be:
     # u = User.get(username)
@@ -72,6 +124,7 @@ def require(*conditions):
 def member_of(groupname):
     def check():
         # replace with actual check if <username> is in <groupname>
+
         return cherrypy.request.login == 'joe' and groupname == 'admin'
 
     return check
@@ -120,7 +173,10 @@ class AuthController(object):
         """Called on logout"""
 
     def get_loginform(self, username, msg="Enter login information", from_page="/"):
-        return """<html><body>
+        return open('./web/login.html')
+
+        '''
+        """<html><body>
             <form method="post" action="/auth/login">
             <input type="hidden" name="from_page" value="%(from_page)s" />
             %(msg)s<br />
@@ -128,7 +184,7 @@ class AuthController(object):
             Password: <input type="password" name="password" /><br />
             <input type="submit" value="Log in" />
         </body></html>""" % locals()
-
+        '''
     @cherrypy.expose
     def login(self, username=None, password=None, from_page="/"):
         if username is None or password is None:
@@ -151,5 +207,3 @@ class AuthController(object):
             cherrypy.request.login = None
             self.on_logout(username)
         raise cherrypy.HTTPRedirect(from_page or "/")
-
-}}}
