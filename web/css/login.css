@@ -214,10 +214,11 @@ h1, .subhead
     margin: 30px 10px 30px 0;
 }
 
-#Register
+#Login
 {
     left: 15px;
 }
+
 
 .cta::before
 {
