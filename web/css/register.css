@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+body
+{
+    margin: 0;
+    background: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p, blockquote
+{
+    font-size: .9em;
+    line-height: 1.6em;
+}
+
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container
+{
+    text-align: center;
+    padding: .8em 1.2em;
+}
+
+.container h1
+{
+    color: white;
+    margin: 3em 0 0 0;
+}
+.logo
+{
+    width: 190px;
+}
+
+.hide-desktop img
+{
+    width: 40px;
+}
+.hide-mobile
+{
+    display: none;
+}
+
+.exit-btn
+{
+    margin-bottom: .1em;
+    margin-top: -3em;
+    text-align: left;
+    padding: 0 0.2em;
+}
+.exit-btn img
+{
+    width: 40px;
+    cursor: pointer;
+}
+nav ul
+{
+    position: fixed;
+    width: 60%;
+    top: 0;
+    right: 0;
+    text-align: left;
+    background: rgb(34, 34, 34);
+    height: 100%;
+    z-index: 7;
+    padding-top: 3em;
+}
+
+nav ul li a
+{
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 1em 2em;
+    background-color: rgb(78, 78, 78);
+}
+
+nav ul li a:hover
+{
+    background-color: rgb(54, 54, 54);
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu
+{
+    width: 25px;
+    margin-top: 30%;
+}
+
+h1, .subhead
+{
+    position: relative;
+    z-index: 3;
+}
+
+.subhead
+{
+    font-size: 1.1em;
+}
+
+.RegisterOutter
+{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(banner.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.RegisterInner
+{
+    height: 560px;
+    width: 300px;
+    position: relative;
+    margin: 1% auto;
+    background: rgb(107, 107, 107);
+    padding: 5px;
+    overflow: hidden;
+}
+
+.button-box
+{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn
+{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn
+{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #ffffff,#756e5e);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.social-icons
+{
+    margin: 30px auto;
+    text-align: center;
+}
+
+.social-icons img
+{
+    width: 30px;
+    margin: 0 12px;
+    box-shadow:  0 0 20px 0 #7f7f7f3d;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.input-group
+{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-field
+{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn
+{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #ffffff,#756e5e);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.check-box
+{
+    margin: 30px 10px 30px 0;
+}
+
+#Login
+{
+    left: 15px;
+}
+
+#Register
+{
+    left: 450px;
+}
+
+.cta::before
+{
+    content: "\a";
+    white-space: pre;
+}
+
+span
+{
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    position: absolute;
+}
+.cta
+{
+    color: white;
+}
+@media only screen and (min-width: 650px)
+{
+    .server
+    {
+        width: 50%;
+    }
+
+    .container h1
+    {
+        font-size: 2.5em;
+        margin: 1em 0 1em 0;
+    }
+
+    .subhead
+    {
+        font-size: 1.4em;
+        margin-bottom: 12%;
+    }
+
+    .gray-container
+    {
+        margin: 0;
+    }
+
+    .gray-container img
+    {
+        width: 180px;
+    }
+
+    .logo
+    {
+        width: 360px;
+    }
+
+    .cta
+    {
+        font-size: 1.5em;
+    }
+
+    .show-desktop
+    {
+        display: block;
+        margin: 0 auto 13% auto;
+    }
+
+    .hide-desktop
+    {
+        display: none;
+    }
+
+    nav ul
+    {
+        position: inherit;
+        width: auto;
+        background: black;
+        height: auto;
+        display: flex;
+        padding-top: 0;
+    }
+
+    nav ul li
+    {
+        float: left;
+    }
+
+    .scroll
+    {
+        width: 30px;
+        animation: move .8s infinite alternate;
+    }
+
+    @keyframes move
+    {
+        0%
+        {
+            transform: translateY(0px);
+        }
+        100%
+        {
+            transform: translateY(20px);
+        }
+    }
+}

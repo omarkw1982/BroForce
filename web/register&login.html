@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <div class= "container">
+        <header>
+            <img src="images/Logo.svg" alt="BroForce Virtual Clinic" class="logo">
+
+            <!--nav>
+                <a href="#" class="hide-desktop">
+                    <img src="images/HamburgerMenu.svg" alt="toggle menu" class="menu" id="menu">
+                </a>
+    
+                <ul class="show-desktop hide-mobile" id="nav">
+                    <li id="exit" class="exit-btn hide-desktop"><img src="images/HamburgerMenu.svg" alt="exit"></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Log In</a></li>
+                </ul>
+            </nav-->
+        </header>
+        
+        <!--section>
+            <h1>Register</h1>
+            <img src="images/Scroll.svg" alt="scroll down" class="scroll hide-mobile show-desktop">
+        </section-->
+    </div>
+
+    
+    <div class="RegisterOutter">
+        <div class="RegisterInner">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <div class="social-icons">
+                <img src="images/iconfinder_Facebook_194929.png" alt="Facebook">
+                <img src="images/iconfinder_Google__194926.png" alt="Google">
+                <img src="images/iconfinder_Twitter_194909.png" alt="Twitter">
+            </div>
+
+            <form id="Login" class= "input-group">
+                <input type="text" class="input-field" placeholder="Email / Civil ID / Phone #" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                <button type="submit" class="submit-btn">Log in</button>
+            </form>
+
+            <form id="Register" class= "input-group">
+                <input type="text" class="input-field" placeholder="Name" required>
+                <input type="email" class="input-field" placeholder="Email" required>
+                <input type="text" class="input-field" placeholder="Civil Id" required>
+                <input type="text" class="input-field" placeholder="Phone Number" required>
+                <input type="text" class="input-field" placeholder="Age" required>
+                <input type="text" class="input-field" placeholder="Address" required>
+                <input type="text" class="input-field" placeholder="Password" required>
+                <input type="checkbox" class="checkbox"><span>I agree to the terms & conditions</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <!--div class="black-container">
+        <div class="container">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div-->
+
+    <script>
+        var x= document.getElementById("Login");
+        var y= document.getElementById("Register");
+        var z= document.getElementById("btn");
+
+        function register()
+        {
+            x.style.left= "-400px";
+            y.style.left= "25px";
+            z.style.left= "110px";
+        }
+
+        function login()
+        {
+            x.style.left= "15px";
+            y.style.left= "450px";
+            z.style.left= "0px";
+        }
+    </script>
+</body>
+</html>
