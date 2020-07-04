@@ -22,7 +22,6 @@ class ClinicSchedule(object):
     def isAvailable(self, dt1, dt2):
         return True;
 
-
     def findUpcomingAppointmentsForPatient(self,patient_name):
         return True;
 
@@ -34,6 +33,8 @@ class ClinicSchedule(object):
 
     def findPastAppointmentsForDoctor(self, doctor_name):
         return True;
+
+
 
 
 

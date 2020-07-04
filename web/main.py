@@ -1,6 +1,8 @@
 import os, os.path
-import cherrypy
+from hashlib import sha1
 
+import cherrypy
+import pymysql.cursors
 
 class RootServer():
     @cherrypy.expose
@@ -10,7 +12,6 @@ class RootServer():
 class MainApp(object):
     @cherrypy.expose
     def index(self):
-        return open('../web/index.html')
         return "This is a secure section"
         #return open('./web/index.html')
 
@@ -39,16 +40,26 @@ class MainApp(object):
         return open('../web/admin.html')
 
 def get_users():
-        db = MySQLdb.connect(host='localhost',
-                             user='db_name',
-                             passwd='db_pass',
-                             db='db_name')
-        curs = db.cursor()
-        curs.execute('select username,password from users')
-        return dict(curs.fetchall())
+    # Connect to the database
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='root',
+                                 db='BroForce',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            # Read a single record
+            sql = "SELECT `name` FROM `BroForce`.`Users`;"
+            cursor.execute(sql)
+            users = dict(cursor.fetchall())
+            print("User list: "+users)
+    finally:
+        connection.close()
+        return users
 
 def encrypt_pw(pw):
-        return md5(pw).hexdigest()
+        return sha1(pw).hexdigest()
 
 
 
@@ -69,7 +80,7 @@ if __name__ == '__main__':
             'tools.staticdir.dir': '../public'
         },
         '/secure': {'tools.basic_auth.on': True,
-                    'tools.basic_auth.realm': 'Some site2',
+                    'tools.basic_auth.realm': 'Virtual Clinic',
                     'tools.basic_auth.users': users,
                     'tools.basic_auth.encrypt': encrypt_pw}
     }
