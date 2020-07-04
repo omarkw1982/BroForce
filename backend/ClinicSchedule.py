@@ -5,9 +5,8 @@ import time
 
 
 class ClinicSchedule(object):
-    var visitList = [];
     var appointmentList = [];
-    var currentDateTime = None;
+    var currentDateTime = 0;
 
     def __init__(self, _v, _app, _t):
         self.visitList = _v
@@ -22,6 +21,22 @@ class ClinicSchedule(object):
 
     def isAvailable(self, dt1, dt2):
         return True;
+
+
+    def findUpcomingAppointmentsForPatient(self,patient_name):
+        return True;
+
+    def findUpcomingAppointmentsForDoctor(self,doctor_name):
+        return True;
+
+    def findPastAppointmentsForPatient(self, patient_name):
+        return True;
+
+    def findPastAppointmentsForDoctor(self, doctor_name):
+        return True;
+
+
+
 
 
 
