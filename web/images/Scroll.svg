@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="125" viewBox="0 0 60 125">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+        stroke: #b8b8b8;
+        stroke-width: 5px;
+      }
+
+      .cls-2 {
+        fill: #bcbcbc;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Scroll" transform="translate(-935 -582)">
+    <g id="Scroll_Outside" data-name="Scroll Outside" class="cls-1" transform="translate(940 587)">
+      <rect class="cls-3" width="50" height="115" rx="25"/>
+      <rect class="cls-4" x="-2.5" y="-2.5" width="55" height="120" rx="27.5"/>
+    </g>
+    <rect id="Scroll_Inside" data-name="Scroll Inside" class="cls-2" width="16" height="37" rx="8" transform="translate(957 626)"/>
+  </g>
+</svg>

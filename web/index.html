@@ -9,18 +9,66 @@
 </head>
 <body>
     <div class= "container">
-        <img src="images/Logo.svg" alt="BroForce Virtual Clinic" class="logo">
+        <header>
+            <img src="images/Logo.svg" alt="BroForce Virtual Clinic" class="logo">
 
-        <nav>
-            <a href="#" class="hide-desktop">
-                <img src="images/HamburgerMenu.svg" alt="toggle menu" class="menu" id="menu">
-            </a>
-
-            <ul class="show-desktop hide-desktop" id="nav">
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Log In</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <a href="#" class="hide-desktop">
+                    <img src="images/HamburgerMenu.svg" alt="toggle menu" class="menu" id="menu">
+                </a>
+    
+                <ul class="show-desktop hide-mobile" id="nav">
+                    <li id="exit" class="exit-btn hide-desktop"><img src="images/HamburgerMenu.svg" alt="exit"></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Log In</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section>
+            <h1>Consult your physician from the comfort of your home</h1>
+            <img src="images/Scroll.svg" alt="scroll down" class="scroll hide-mobile show-desktop">
+        </section>
     </div>
+
+    <div class="gray-container">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="#"><img src="images/CalendarIcon.svg" alt="CalendarIcon"></a>
+                    <br>
+                    <a href="#" class="cta">Schedule your appointment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="black-container">
+        <div class="container">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var menu = document.getElementById('menu');
+        var nav = document.getElementById('nav');
+        var exit = document.getElementById('exit');
+
+        menu.addEventListener('click', function(e)
+        {
+            nav.classList.toggle('hide-mobile');
+            e.preventDefault();
+        })
+
+        exit.addEventListener('click', function(e)
+        {
+            nav.classList.add('hide-mobile');
+            e.preventDefault();
+        })
+    </script>
 </body>
 </html>
