@@ -10,25 +10,21 @@ from backend.Auth import *
 class RootServer():
     @cherrypy.expose
     def index(self):
-        return """This is a public page!"""
+        return open('./web/index.html')
+        #return """This is a public page!"""
+
+    @cherrypy.expose
+    def login(self):
+        #return "This is the login page"
+        raise cherrypy.HTTPRedirect("/auth/login")
+
 
 class MainApp(object):
 
     @cherrypy.expose
     def index(self):
-        return "This is the public section"
-        #return open('./web/index.html')
-
-    @cherrypy.expose
-    def register(self):
-        return "This is the registration page"
-        #return open('../web/register.html')
-
-    @cherrypy.expose
-    def login(self):
-        return "This is the login page"
-        #return open('../web/login.html')
-
+        #return "This is the public section"
+        return open('/static/index.html')
 
 
 if __name__ == '__main__':

@@ -45,11 +45,26 @@ def get_user_digest(u):
             sql = "SELECT `Users`.`password`FROM `BroForce`.`Users`  WHERE `Users`.`name` LIKE '" + str(u) + "'";
             cursor.execute(sql)
             pass_digest = cursor.fetchall();
-            print("User hash: " + users)
     finally:
         connection.close()
         return pass_digest;
 
+def get_user_role(u):
+    # Connect to the database
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='root',
+                                 db='BroForce',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            sql = "SELECT `Users`.`role` FROM `BroForce`.`Users`  WHERE `Users`.`name` LIKE '" + str(u) + "'";
+            cursor.execute(sql)
+            role = cursor.fetchall();
+    finally:
+        connection.close()
+        return role;
 
 def encrypt_pw(pw):
     return sha1(pw.encode('utf-8')).hexdigest()
@@ -168,6 +183,9 @@ class AuthController(object):
 
     def on_login(self, username):
         """Called on successful login"""
+        #check the role of the user and redirect to appropriate dashboard
+        r = get_user_role(username)
+        raise cherrypy.HTTPRedirect(r[0]['role'])
 
     def on_logout(self, username):
         """Called on logout"""

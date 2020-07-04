@@ -14,6 +14,7 @@ class Admin:
     @require()
     def index(self):
         return """This is the admin only area."""
+        #return open("/static/admin.html")
 
 class RestrictedArea:
     _cp_config = {
